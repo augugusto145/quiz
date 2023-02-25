@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz de Geografia Mundial</title>
+	<style>
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		form {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Quiz de Geografia Mundial</h1>
+	<form onsubmit="return false;">
+
+<p>19. Qual é o maior continente do mundo em área territorial?</p>
+	<input type="radio" name="q19" value="a">a) África<br>
+	<input type="radio" name="q19" value="b">b) América do Sul<br>
+	<input type="radio" name="q19" value="c">c) Europa<br>
+	<input type="radio" name="q19" value="d">d) Ásia<br>
+	<hr>
+<p>20. Qual é a capital do Egito?</p>
+	<input type="radio" name="q20" value="a">a) Alexandria<br>
+	<input type="radio" name="q20" value="b">b) Luxor<br>
+	<input type="radio" name="q20" value="c">c) Cairo<br>
+	<input type="radio" name="q20" value="d">d) Gizé<br>
+	<hr>
+	
+	<p>21. Qual é a capital do Paquistão?</p>
+	<input type="radio" name="q21" value="a">a) Lahore<br>
+	<input type="radio" name="q21" value="b">b) Islamabad<br>
+	<input type="radio" name="q21" value="c">c) Quetta<br>
+	<input type="radio" name="q21" value="d">d) Karachi<br>
+	<hr>
+	
+	<p>22. Qual é a capital do México?</p>
+	<input type="radio" name="q22" value="a">a) Tijuana<br>
+	<input type="radio" name="q22" value="b">b) Cidade do México<br>
+	<input type="radio" name="q22" value="c">c) Monterrey<br>
+	<input type="radio" name="q22" value="d">d) Guadalajara<br>
+	<hr>
+	
+	<p>23. Qual é a capital de Portugal?</p>
+	<input type="radio" name="q23" value="a">a) Lisboa<br>
+	<input type="radio" name="q23" value="b">b) Porto<br>
+	<input type="radio" name="q23" value="c">c) Coimbra<br>
+	<input type="radio" name="q23" value="d">d) Faro<br>
+	<hr>
+	
+	<p>24. Qual é a capital do Senegal?</p>
+	<input type="radio" name="q24" value="a">a) Dakar<br>
+	<input type="radio" name="q24" value="b">b) Saint-Louis<br>
+	<input type="radio" name="q24" value="c">c) Ziguinchor<br>
+	<input type="radio" name="q24" value="d">d) Kaolack<br>
+	<hr>
+	<input type="submit" value="Enviar Respostas" onclick="checkAnswers()">
+	</form>
+	<div id="results"></div>
+
+	<script>
+		function checkAnswers() {
+			let numCorrect = 0;
+			let userAnswers = [];
+			const correctAnswers = [ "a", "c", "a", "b","c","a"];
+
+
+
+			// Pega as respostas do usuário
+			const questions = document.getElementsByTagName("input");
+			for (let i = 0; i < questions.length; i++) {
+				if (questions[i].checked) {
+					userAnswers.push(questions[i].value);
+				}
+			}
+
+			// Verifica as respostas do usuário e atualiza a variável numCorrect
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] === correctAnswers[i]) {
+					numCorrect++;
+				}
+			}
+
+			// Exibe o resultado para o usuário
+			const results = document.getElementById("results");
+			results.innerHTML = "<h2>Você acertou " + numCorrect + " de " + correctAnswers.length + " perguntas!</h2>";
+
+			// Exibe as respostas corretas para as perguntas que o usuário errou
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] !== correctAnswers[i]) {
+					const questionNum = i + 1;
+results.innerHTML += "<p>Você errou a pergunta " + questionNum + ". A resposta correta era a alternativa " + correctAnswers[i].toUpperCase()
+".</p>";
+}
+}
+}
+</script>
+</body>
+</html>

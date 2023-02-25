@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz de Geografia Mundial</title>
+	<style>
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		form {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Quiz de Geografia Mundial</h1>
+	<form onsubmit="return false;">
+		<p>1. Qual é o maior país do mundo em área terrestre?</p>
+		<input type="radio" name="q1" value="a">a) Rússia<br>
+		<input type="radio" name="q1" value="b">b) China<br>
+		<input type="radio" name="q1" value="c">c) Brasil<br>
+		<input type="radio" name="q1" value="d">d) Estados Unidos<br>
+		<hr>
+		
+		<p>2. Qual é o país com a maior população do mundo?</p>
+		<input type="radio" name="q2" value="a">a) Índia<br>
+		<input type="radio" name="q2" value="b">b) China<br>
+		<input type="radio" name="q2" value="c">c) Estados Unidos<br>
+		<input type="radio" name="q2" value="d">d) Rússia<br>
+		<hr>
+  <p>3. Qual é a capital do Canadá?</p>
+  <input type="radio" name="q3" value="a">a) Toronto<br>
+  <input type="radio" name="q3" value="b">b) Montreal<br>
+  <input type="radio" name="q3" value="c">c) Vancouver<br>
+  <input type="radio" name="q3" value="d">d) Ottawa<br>
+  <hr>
+
+  <p>4. Qual é o maior deserto do mundo?</p>
+  <input type="radio" name="q4" value="a">a) Deserto do Saara<br>
+  <input type="radio" name="q4" value="b">b) Deserto do Atacama<br>
+  <input type="radio" name="q4" value="c">c) Deserto de Gobi<br>
+  <input type="radio" name="q4" value="d">d) Deserto da Arábia<br>
+  <hr>
+
+  <p>5. Qual é o maior rio do mundo em volume de água?</p>
+  <input type="radio" name="q5" value="a">a) Nilo<br>
+  <input type="radio" name="q5" value="b">b) Amazonas<br>
+  <input type="radio" name="q5" value="c">c) Yangtze<br>
+  <input type="radio" name="q5" value="d">d) Mississippi<br>
+  <hr>
+
+  <p>6. Qual é a capital da Espanha?</p>
+  <input type="radio" name="q6" value="a">a) Madrid<br>
+  <input type="radio" name="q6" value="b">b) Barcelona<br>
+  <input type="radio" name="q6" value="c">c) Sevilha<br>
+  <input type="radio" name="q6" value="d">d) Valencia<br>
+  <hr>
+  
+
+
+	
+	
+	
+
+		<!-- Aqui vão as outras perguntas do quiz -->
+
+		<input type="submit" value="Enviar Respostas" onclick="checkAnswers()">
+	</form>
+	<div id="results"></div>
+
+	<script>
+		function checkAnswers() {
+			let numCorrect = 0;
+			let userAnswers = [];
+			const correctAnswers = ["a", "b", "d", "d", "a", "c"];
+
+
+			// Pega as respostas do usuário
+			const questions = document.getElementsByTagName("input");
+			for (let i = 0; i < questions.length; i++) {
+				if (questions[i].checked) {
+					userAnswers.push(questions[i].value);
+				}
+			}
+
+			// Verifica as respostas do usuário e atualiza a variável numCorrect
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] === correctAnswers[i]) {
+					numCorrect++;
+				}
+			}
+
+			// Exibe o resultado para o usuário
+			const results = document.getElementById("results");
+			results.innerHTML = "<h2>Você acertou " + numCorrect + " de " + correctAnswers.length + " perguntas!</h2>";
+
+			// Exibe as respostas corretas para as perguntas que o usuário errou
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] !== correctAnswers[i]) {
+					const questionNum = i + 1;
+results.innerHTML += "<p>Você errou a pergunta " + questionNum + ". A resposta correta era a alternativa " + correctAnswers[i].toUpperCase()
+".</p>";
+}
+}
+}
+</script>
+</body>
+</html>
+```

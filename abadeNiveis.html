@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+   <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+    }
+    
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #333;
+      text-align: center;
+    }
+    
+    .quiz-levels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .quiz-level-button {
+      background-color: #3333FF;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-level-button:hover {
+      background-color: #3e8e41;
+    }
+
+    .quiz-level-button.completed {
+      background-color: #ccc;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+ <div class="quiz-levels">
+  <a href="quiz.html"><button class="quiz-level-button">Nível 1</button></a>
+  <a href="quiz12.html"><button class="quiz-level-button">Nível 2</button></a>
+  <a href="quiz18.html"><button class="quiz-level-button">Nível 3</button></a>
+<a href="quiz24.html"><button class="quiz-level-button">Nível 4</button></a>
+  <a href="quiz30.html"><button class="quiz-level-button">Nível 5</button></a>
+</div>
+
+  <script>
+    // Função para marcar um botão como concluído
+    function markCompleted(button) {
+      button.classList.add('completed');
+      button.disabled = true;
+    }
+
+    // Event listeners para marcar botões como concluídos
+    const level1Button = document.querySelector('.quiz-level-button:nth-of-type(1)');
+    level1Button.addEventListener('click', () => markCompleted(level1Button));
+
+    const level2Button = document.querySelector('.quiz-level-button:nth-of-type(2)');
+    level2Button.addEventListener('click', () => markCompleted(level2Button));
+
+    const level3Button = document.querySelector('.quiz-level-button:nth-of-type(3)');
+    level3Button.addEventListener('click', () => markCompleted(level3Button));
+
+    const level4Button = document.querySelector('.quiz-level-button:nth-of-type(4)');
+    level4Button.addEventListener('click', () => markCompleted(level4Button));
+
+    const level5Button = document.querySelector('.quiz-level-button:nth-of-type(5)');
+    level5Button.addEventListener('click', () => markCompleted(level5Button));
+  </script>
+</body>
+</html>

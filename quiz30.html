@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz de Geografia Mundial</title>
+	<style>
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		form {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Quiz de Geografia Mundial</h1>
+	<form onsubmit="return false;">
+
+<p>25. Qual é a capital da Turquia?</p>
+	<input type="radio" name="q25" value="a">a) Estambul<br>
+	<input type="radio" name="q25" value="b">b) Ankara<br>
+	<input type="radio" name="q25" value="c">c) Istambul<br>
+	<input type="radio" name="q25" value="d">d) Izmir<br>
+	<hr>
+	
+	<p>26. Qual é o país com a maior população na África?</p>
+	<input type="radio" name="q26" value="a">a) Egito<br>
+	<input type="radio" name="q26" value="b">b) Nigéria<br>
+	<input type="radio" name="q26" value="c">c) Marrocos<br>
+	<input type="radio" name="q26" value="d">d) Etiópia<br>
+	<hr>
+	
+	<p>27. Qual é a maior cidade da África?</p>
+	<input type="radio" name="q27" value="a">a) Lagos<br>
+	<input type="radio" name="q27" value="b">b) Kinshasa<br>
+	<input type="radio" name="q27" value="c">c) Cairo<br>
+	<input type="radio" name="q27" value="d">d) Alexandria<br>
+	<hr>
+	
+	<p>28. Qual é o maior país da África em área territorial?</p>
+	<input type="radio" name="q28" value="a">a) Argélia<br>
+	<input type="radio" name="q28" value="b">b) Sudão do Sul<br>
+	<input type="radio" name="q28" value="c">c) Sudão<br>
+	<input type="radio" name="q28" value="d">d) Congo<br>
+	<hr>
+	
+	<p>29. Qual é o país com a maior costa no oceano Atlântico?</p>
+	<input type="radio" name="q29" value="a">a) Estados Unidos<br>
+	<input type="radio" name="q29" value="b">b) Canadá<br>
+	<input type="radio" name="q29" value="c">c) França<br>
+	<input type="radio" name="q29" value="d">d) Brasil<br>
+	<hr>
+	
+	<p>30. Qual é a capital da Austrália?</p>
+	<input type="radio" name="q30" value="a">a) Sydney<br>
+	<input type="radio" name="q30" value="b">b) Melbourne<br>
+	<input type="radio" name="q30" value="c">c) Perth<br>
+	<input type="radio" name="q30" value="d">d) Canberra<br>
+	<hr>
+	
+
+		<!-- Aqui vão as outras perguntas do quiz -->
+
+		<input type="submit" value="Enviar Respostas" onclick="checkAnswers()">
+	</form>
+	<div id="results"></div>
+
+	<script>
+		function checkAnswers() {
+			let numCorrect = 0;
+			let userAnswers = [];
+			const correctAnswers = [ "a", "c", "a", "b","c","a"];
+
+
+
+
+			// Pega as respostas do usuário
+			const questions = document.getElementsByTagName("input");
+			for (let i = 0; i < questions.length; i++) {
+				if (questions[i].checked) {
+					userAnswers.push(questions[i].value);
+				}
+			}
+
+			// Verifica as respostas do usuário e atualiza a variável numCorrect
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] === correctAnswers[i]) {
+					numCorrect++;
+				}
+			}
+
+			// Exibe o resultado para o usuário
+			const results = document.getElementById("results");
+			results.innerHTML = "<h2>Você acertou " + numCorrect + " de " + correctAnswers.length + " perguntas!</h2>";
+
+			// Exibe as respostas corretas para as perguntas que o usuário errou
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] !== correctAnswers[i]) {
+					const questionNum = i + 1;
+results.innerHTML += "<p>Você errou a pergunta " + questionNum + ". A resposta correta era a alternativa " + correctAnswers[i].toUpperCase()
+".</p>";
+}
+}
+}
+</script>
+</body>
+</html>

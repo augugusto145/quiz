@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz de Geografia Mundial</title>
+	<style>
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		form {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>7. Qual é o maior lago do mundo em área?</p>
+<input type="radio" name="q7" value="a">a) Mar Cáspio<br>
+<input type="radio" name="q7" value="b">b) Lago Vitória<br>
+<input type="radio" name="q7" value="c">c) Lago Baikal<br>
+<input type="radio" name="q7" value="d">d) Lago Superior<br>
+<hr>
+
+<p>8. Qual é o país com a maior costa do mundo?</p>
+<input type="radio" name="q8" value="a">a) Rússia<br>
+<input type="radio" name="q8" value="b">b) Canadá<br>
+<input type="radio" name="q8" value="c">c) Austrália<br>
+<input type="radio" name="q8" value="d">d) Estados Unidos<br>
+<hr>
+
+<p>9. Qual é o país mais populoso da América do Sul?</p>
+<input type="radio" name="q9" value="a">a) Brasil<br>
+<input type="radio" name="q9" value="b">b) Argentina<br>
+<input type="radio" name="q9" value="c">c) Colômbia<br>
+<input type="radio" name="q9" value="d">d) Peru<br>
+<hr>
+
+<p>10. Qual é o maior arquipélago do mundo?</p>
+<input type="radio" name="q10" value="a">a) Ilhas Galápagos<br>
+<input type="radio" name="q10" value="b">b) Havaí<br>
+<input type="radio" name="q10" value="c">c) Filipinas<br>
+<input type="radio" name="q10" value="d">d) Indonésia<br>
+<hr>
+
+<p>11. Qual é a capital da Nova Zelândia?</p>
+<input type="radio" name="q11" value="a">a) Auckland<br>
+<input type="radio" name="q11" value="b">b) Wellington<br>
+<input type="radio" name="q11" value="c">c) Christchurch<br>
+<input type="radio" name="q11" value="d">d) Queenstown<br>
+<hr>
+
+<p>12. Qual é o país com o maior número de ilhas do mundo?</p>
+<input type="radio" name="q12" value="a">a) Indonésia<br>
+<input type="radio" name="q12" value="b">b) Japão<br>
+<input type="radio" name="q12" value="c">c) Filipinas<br>
+<input type="radio" name="q12" value="d">d) Nova Zelândia<br>
+<hr>
+
+
+		<input type="submit" value="Enviar Respostas" onclick="checkAnswers()">
+	</form>
+	<div id="results"></div>
+
+	<script>
+		function checkAnswers() {
+			let numCorrect = 0;
+			let userAnswers = [];
+			const correctAnswers = ["b", "a", "b", "d", "b", "a"];
+
+
+
+			// Pega as respostas do usuário
+			const questions = document.getElementsByTagName("input");
+			for (let i = 0; i < questions.length; i++) {
+				if (questions[i].checked) {
+					userAnswers.push(questions[i].value);
+				}
+			}
+
+			// Verifica as respostas do usuário e atualiza a variável numCorrect
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] === correctAnswers[i]) {
+					numCorrect++;
+				}
+			}
+
+			// Exibe o resultado para o usuário
+			const results = document.getElementById("results");
+			results.innerHTML = "<h2>Você acertou " + numCorrect + " de " + correctAnswers.length + " perguntas!</h2>";
+
+			// Exibe as respostas corretas para as perguntas que o usuário errou
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] !== correctAnswers[i]) {
+					const questionNum = i + 1;
+results.innerHTML += "<p>Você errou a pergunta " + questionNum + ". A resposta correta era a alternativa " + correctAnswers[i].toUpperCase()
+".</p>";
+}
+}
+}
+</script>
+</body>
+</html>

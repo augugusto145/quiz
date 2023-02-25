@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz de Geografia Mundial</title>
+	<style>
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		form {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Quiz de Geografia Mundial</h1>
+	<form onsubmit="return false;">
+
+<p>13. Qual é a capital do Chile?</p>
+<input type="radio" name="q13" value="a">a) Santiago<br>
+<input type="radio" name="q13" value="b">b) Buenos Aires<br>
+<input type="radio" name="q13" value="c">c) Montevideo<br>
+<input type="radio" name="q13" value="d">d) Lima<br>
+<hr>
+<p>14. Qual é o maior estado dos Estados Unidos em área terrestre?</p>
+		<input type="radio" name="q14" value="a">a) Texas<br>
+		<input type="radio" name="q14" value="b">b) Califórnia<br>
+		<input type="radio" name="q14" value="c">c) Alasca<br>
+		<input type="radio" name="q14" value="d">d) Montana<br>
+		<hr>
+<p>15. Qual é a capital da Argentina?</p>
+	<input type="radio" name="q15" value="a">a) Santiago<br>
+	<input type="radio" name="q15" value="b">b) Montevidéu<br>
+	<input type="radio" name="q15" value="c">c) Buenos Aires<br>
+	<input type="radio" name="q15" value="d">d) Lima<br>
+	<hr>
+	
+	<p>16. Qual é a capital da Nigéria?</p>
+	<input type="radio" name="q16" value="a">a) Lagos<br>
+	<input type="radio" name="q16" value="b">b) Abuja<br>
+	<input type="radio" name="q16" value="c">c) Kano<br>
+	<input type="radio" name="q16" value="d">d) Ibadan<br>
+	<hr>
+	
+	<p>17. Qual é o rio mais extenso do mundo?</p>
+	<input type="radio" name="q17" value="a">a) Nilo<br>
+	<input type="radio" name="q17" value="b">b) Amazonas<br>
+	<input type="radio" name="q17" value="c">c) Yangtze<br>
+	<input type="radio" name="q17" value="d">d) Mississipi<br>
+	<hr>
+	
+	<p>18. Qual é a capital do Marrocos?</p>
+	<input type="radio" name="q18" value="a">a) Rabat<br>
+	<input type="radio" name="q18" value="b">b) Marrakech<br>
+	<input type="radio" name="q18" value="c">c) Casablanca<br>
+	<input type="radio" name="q18" value="d">d) Fez<br>
+	<hr>
+	<input type="submit" value="Enviar Respostas" onclick="checkAnswers()">
+	</form>
+	<div id="results"></div>
+
+	<script>
+		function checkAnswers() {
+			let numCorrect = 0;
+			let userAnswers = [];
+			const correctAnswers = ["a", "c", "a", "b","c","a"];
+
+
+
+			// Pega as respostas do usuário
+			const questions = document.getElementsByTagName("input");
+			for (let i = 0; i < questions.length; i++) {
+				if (questions[i].checked) {
+					userAnswers.push(questions[i].value);
+				}
+			}
+
+			// Verifica as respostas do usuário e atualiza a variável numCorrect
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] === correctAnswers[i]) {
+					numCorrect++;
+				}
+			}
+
+			// Exibe o resultado para o usuário
+			const results = document.getElementById("results");
+			results.innerHTML = "<h2>Você acertou " + numCorrect + " de " + correctAnswers.length + " perguntas!</h2>";
+
+			// Exibe as respostas corretas para as perguntas que o usuário errou
+			for (let i = 0; i < userAnswers.length; i++) {
+				if (userAnswers[i] !== correctAnswers[i]) {
+					const questionNum = i + 1;
+results.innerHTML += "<p>Você errou a pergunta " + questionNum + ". A resposta correta era a alternativa " + correctAnswers[i].toUpperCase()
+".</p>";
+}
+}
+}
+</script>
+</body>
+</html>
